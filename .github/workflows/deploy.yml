@@ -22,6 +22,16 @@ jobs:
 
       - name: Build with pygbag
         run: pygbag --build main.py
+ 
+      - name: Debug build output
+        run: ls -R ./build
+
+      - name: Verify build output
+        run: ls -la ./build/web
+
+      - name: Disable Jekyll
+        run: echo "" > ./build/web/.nojekyll
+
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
